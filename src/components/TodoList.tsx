@@ -1,8 +1,18 @@
 import React from 'react';
+import { Todo } from '../modules/todos';
+import TodoItem from './TodoItem';
 
-function TodoList() {
+type TodoListProps = {
+    todos: Todo[];
+}
+
+function TodoList({ todos }: TodoListProps) {
     return (
-        <div>TodoList Component</div>
+        <ul>
+            {todos.map(todo => (
+                <TodoItem todo={todo} key={todo.id} />
+            ))}
+        </ul>
     )
 }
 

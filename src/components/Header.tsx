@@ -6,15 +6,15 @@ const HeaderComponenet = styled.div`
     font-size: 30px;
     height: 200px;
     display: flex;
+    align-items: center;
     border-bottom: 2px solid black;
     margin-bottom: 10px;
 `;
 
 const LinkComponent = styled(NavLink)`
-    height: 100%;
+    height: 50px;
     width: 100%;
     text-align: center;
-    padding-top: 100px;
     font-size: 50px;
     text-decoration: none;
     color: gray;

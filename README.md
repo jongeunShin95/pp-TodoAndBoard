@@ -27,3 +27,8 @@
 
 # &#10004; 0515
 * Header Styling<br />
+
+</br>
+
+# &#10004; 0518
+* TodoApp - TodoList의 item들 reducer로 저장 및 나열<br />
