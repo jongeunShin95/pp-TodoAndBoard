@@ -32,3 +32,8 @@
 
 # &#10004; 0518
 * TodoApp - TodoList의 item들 reducer로 저장 및 나열<br />
+
+</br>
+
+# &#10004; 0519
+* TodoApp - TodoInput 컴포넌트 및 기능 구현<br />
