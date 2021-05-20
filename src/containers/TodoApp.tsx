@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import TodoList from '../components/TodoList';
 import TodoInput from '../components/TodoInput';
 import { RootState } from '../modules';
-import { addTodo } from '../modules/todos';
+import { addTodo, removeTodo, toggleTodo } from '../modules/todos';
 
 function TodoApp() {
     const todos = useSelector((state: RootState) => state.todos);
@@ -13,10 +13,18 @@ function TodoApp() {
         dispatch(addTodo(text));
     }
 
+    const onToggle = (id: number) => {
+        dispatch(toggleTodo(id));
+    }
+
+    const onRemove = (id: number) => {
+        dispatch(removeTodo(id));
+    }
+
     return (
         <>
             <TodoInput onInput={onInput} />
-            <TodoList todos={todos} />
+            <TodoList todos={todos} onToggle={onToggle} onRemove={onRemove} />
         </>
     )
 }

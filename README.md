@@ -37,3 +37,8 @@
 
 # &#10004; 0519
 * TodoApp - TodoInput 컴포넌트 및 기능 구현<br />
+
+</br>
+
+# &#10004; 0520
+* TodoApp - TodoToggle, TodoRemove 기능 구현<br />
