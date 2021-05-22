@@ -42,3 +42,10 @@
 
 # &#10004; 0520
 * TodoApp - TodoToggle, TodoRemove 기능 구현<br />
+
+</br>
+
+# &#10004; 0522
+* BoardApp - BoardList에 item들 렌더링<br />
+* BoardApp - created_at은 하드코딩으로 string으로 넣어둠<br />
+* 컴포넌트 디렉토리 구조 변경<br />

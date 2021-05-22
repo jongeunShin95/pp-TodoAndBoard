@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
+import boards from './boards';
 import todos from './todos';
 
 const rootReducer = combineReducers({
-    todos
+    todos,
+    boards
 });
 
 export default rootReducer;

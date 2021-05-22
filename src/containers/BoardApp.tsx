@@ -1,10 +1,13 @@
 import React from 'react';
-import BoardList from '../components/BoardList';
+import { useSelector } from 'react-redux';
+import BoardList from '../components/boards/BoardList';
+import { RootState } from '../modules';
 
 function BoardApp() {
+    const boards = useSelector((state: RootState) => state.boards);
     return (
         <>
-            <BoardList />
+            <BoardList boards={boards}/>
         </>
     )
 }
