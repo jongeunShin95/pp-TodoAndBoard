@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom';
 import BoardApp from './containers/BoardApp';
 import HeaderApp from './containers/HeaderApp';
 import TodoApp from './containers/TodoApp';
-import BoardDetail from './containers/BoardDetail';
 
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
@@ -19,7 +18,7 @@ function App() {
       <HeaderApp />
       <Route path="/Todo" component={TodoApp} />
       <Route path="/Board" component={BoardApp} exact={true} />
-      <Route path="/Board/:id" component={BoardDetail} />
+      <Route path="/Board/:id" component={BoardApp} />
     </>
   );
 }
