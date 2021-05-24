@@ -54,3 +54,8 @@
 
 # &#10004; 0523
 * BoardApp - BoardDetail(상세페이지) 만들기 완료<br />
+
+</br>
+
+# &#10004; 0524
+* BoardApp - BoardInput(글작성) 완료<br />

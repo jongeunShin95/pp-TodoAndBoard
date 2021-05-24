@@ -1,10 +1,10 @@
 import React, { FormEvent, useState } from 'react';
 
-type TodoInputtProps = {
+type TodoInputProps = {
     onInput: (text: string) => void;
 }
 
-function TodoInput({ onInput }: TodoInputtProps) {
+function TodoInput({ onInput }: TodoInputProps) {
     const [value, setValue] = useState('');
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
