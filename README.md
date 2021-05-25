@@ -59,3 +59,8 @@
 
 # &#10004; 0524
 * BoardApp - BoardInput(글작성) 완료<br />
+
+</br>
+
+# &#10004; 0525
+* BoardApp - BoardModify(수정), BoardRemove(삭제) 완료<br />

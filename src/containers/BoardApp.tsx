@@ -6,7 +6,7 @@ import BoardList from '../components/boards/BoardList';
 import { RootState } from '../modules';
 import { NavLink } from 'react-router-dom';
 import BoardInput from '../components/boards/BoardInput';
-import { addBoard } from '../modules/boards';
+import { addBoard, modifyBoard, removeBoard } from '../modules/boards';
 
 type BoardDetailProps = {
     id: string;
@@ -17,7 +17,13 @@ type AddProps = {
     content: string
 }
 
-function BoardApp({ match, history }: RouteComponentProps<BoardDetailProps>) {
+type ModifyProps = {
+    id: number;
+    title: string;
+    content: string;
+}
+
+function BoardApp({ match, history, location }: RouteComponentProps<BoardDetailProps>) {
     const { id } = match.params;
     const boards = useSelector((state: RootState) => state.boards);
     const dispatch = useDispatch();
@@ -27,16 +33,25 @@ function BoardApp({ match, history }: RouteComponentProps<BoardDetailProps>) {
         history.push('/Board');
     }
 
+    const onRemove = (id: number) => {
+        dispatch(removeBoard(id));
+    }
+
+    const onModify = ({ id, title, content }: ModifyProps) => {
+        dispatch(modifyBoard({ id, title, content }));
+        history.push('/Board');
+    }
+
     if (id === "write") return <BoardInput onInput={onInput} />;
     if (!id) return (
         <>
-            <BoardList boards={boards}/>
+            <BoardList boards={boards} onRemove={onRemove} />
             <NavLink to="/Board/write">글작성</NavLink>
         </>
     )
     return (
         <>
-            <BoardDetailItem board={boards[Number(id) - 1]} />
+            <BoardDetailItem board={boards[Number(id) - 1]} onModify={onModify} />
         </>
     )
 }

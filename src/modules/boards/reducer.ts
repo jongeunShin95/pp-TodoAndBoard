@@ -1,5 +1,5 @@
 import { createReducer } from 'typesafe-actions';
-import { ADD_BOARD } from './actions';
+import { ADD_BOARD, MODIFY_BOARD, REMOVE_BOARD } from './actions';
 import { BoardsAction, BoardsState } from './types';
 
 const current = new Date();
@@ -12,6 +12,12 @@ const boards = createReducer<BoardsState, BoardsAction>(initialState, {
         ...action.payload,
         created_at: currentTime
     }),
+    [MODIFY_BOARD]: (state, action) => state.map(
+        board => board.id === action.payload.id ? { ...board, title: action.payload.title, content: action.payload.content } : board
+    ),
+    [REMOVE_BOARD]: (state, action) => state.filter(
+        board => board.id !== action.payload
+    )
 });
 
 export default boards;
