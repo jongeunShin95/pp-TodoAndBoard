@@ -64,3 +64,8 @@
 
 # &#10004; 0525
 * BoardApp - BoardModify(수정), BoardRemove(삭제) 완료<br />
+
+</br>
+
+# &#10004; 0526
+* App - header, body 나누고 header는 일단 완료(나중에 더 좋은 디자인 생각나면 수정하기)<br />
