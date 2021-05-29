@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { ThemeProvider } from '@material-ui/styles';
+import { unstable_createMuiStrictModeTheme } from '@material-ui/core';
 
 const NavLinkComponent = styled(NavLink)`
     text-decoration: none;
@@ -24,7 +26,7 @@ function Header() {
     };
 
     return (
-        <>
+        <ThemeProvider theme={unstable_createMuiStrictModeTheme()}>
             <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
                 Open Menu
             </Button>
@@ -38,7 +40,7 @@ function Header() {
             <MenuItem onClick={handleClose}><NavLinkComponent to="/Todo">Todo</NavLinkComponent> </MenuItem>
             <MenuItem onClick={handleClose}><NavLinkComponent to="/Board">Board</NavLinkComponent></MenuItem>
             </Menu>
-        </>
+        </ThemeProvider>
     );
 }
 

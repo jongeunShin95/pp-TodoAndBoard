@@ -36,7 +36,7 @@ function App() {
       <CssBaseline />
       <Container fixed>
         <Grid container spacing={3}>
-          <Grid item xs={12} direction="column" justify="center" alignItems="center">
+          <Grid  item xs={12}>
             <Paper className={classes.paper}><HeaderApp /></Paper>
           </Grid>
 

@@ -69,3 +69,11 @@
 
 # &#10004; 0526
 * App - header, body 나누고 header는 일단 완료(나중에 더 좋은 디자인 생각나면 수정하기)<br />
+
+</br>
+
+# &#10004; 0529
+* TodoApp - TodoList랑 TodoInput 부분 스타일링 적용<br />
+
+### TodoList
+![TodoList](https://user-images.githubusercontent.com/20867824/120082272-f20a8780-c0fc-11eb-93ce-fd741626efd0.png)
