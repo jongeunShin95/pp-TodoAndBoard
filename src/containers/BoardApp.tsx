@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
-import BoardDetailItem from '../components/boards/BoardDetailItem';
 import BoardList from '../components/boards/BoardList';
 import { RootState } from '../modules';
 import { NavLink } from 'react-router-dom';
 import BoardInput from '../components/boards/BoardInput';
 import { addBoard, modifyBoard, removeBoard } from '../modules/boards';
+import Button from '@material-ui/core/Button';
 
 type BoardDetailProps = {
     id: string;
@@ -43,15 +43,10 @@ function BoardApp({ match, history, location }: RouteComponentProps<BoardDetailP
     }
 
     if (id === "write") return <BoardInput onInput={onInput} />;
-    if (!id) return (
-        <>
-            <BoardList boards={boards} onRemove={onRemove} />
-            <NavLink to="/Board/write">글작성</NavLink>
-        </>
-    )
     return (
         <>
-            <BoardDetailItem board={boards[Number(id) - 1]} onModify={onModify} />
+            <Button variant="outlined"><NavLink to="/Board/write" style={{ textDecoration: 'none', color: 'black' }}>글작성</NavLink></Button>
+            <BoardList boards={boards} onRemove={onRemove} onModify={onModify} />
         </>
     )
 }

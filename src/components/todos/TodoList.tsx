@@ -25,7 +25,7 @@ type Column = {
     minWidth?: number;
     align?: 'right';
 }
-  
+
 const columns: Column[] = [
     { id: 'id', label: 'ID', minWidth: 170 },
     { id: 'text', label: 'TEXT', minWidth: 100 },

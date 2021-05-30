@@ -77,3 +77,11 @@
 
 ### TodoList
 ![TodoList](https://user-images.githubusercontent.com/20867824/120082272-f20a8780-c0fc-11eb-93ce-fd741626efd0.png)
+
+</br>
+
+# &#10004; 0530
+* BoardApp - BoardList이랑 상세보기 스타일링 적용<br />
+
+### BoardList
+![BoardList](https://user-images.githubusercontent.com/20867824/120099185-2faaf700-c175-11eb-975d-63ad80c7ec9b.png)
