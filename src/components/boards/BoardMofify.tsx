@@ -1,6 +1,19 @@
 import React, { FormEvent, useState } from 'react';
 import { Board } from '../../modules/boards';
 
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: '70%',
+      },
+    },
+}));
+
 type ModifyFProps = {
     id: number;
     title: string;
@@ -13,6 +26,7 @@ type ModifyProps = {
 }
 
 function BoardModify({ board, onModify }: ModifyProps) {
+    const classes = useStyles();
     const [inputs, setValue] = useState({
         title: board.title,
         content: board.content
@@ -33,22 +47,20 @@ function BoardModify({ board, onModify }: ModifyProps) {
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <input
-                name="title"
-                placeholder="제목을 입력하세요."
-                value={title}
-                onChange={onChange}
-            />
+        <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmit}>
+            <TextField name="title" value={title} onChange={onChange} id="standard-basic" label="제목" />
             <br />
-            <textarea
+            <TextField
                 name="content"
-                placeholder="내용을 입력하세요."
                 value={content}
                 onChange={onChange}
+                id="standard-multiline-static"
+                label="내용"
+                multiline
+                rows={17}
             />
             <br />
-            <button type="submit">수정</button>
+            <Button type="submit" variant="outlined">수정</Button>
         </form>
     );
 }

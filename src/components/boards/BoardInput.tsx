@@ -1,5 +1,18 @@
 import React, { FormEvent, useState } from 'react';
 
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: '70%',
+      },
+    },
+}));
+
 type AddProps = {
     title: string,
     content: string
@@ -10,6 +23,7 @@ type BoardInputProps = {
 }
 
 function BoardInput({ onInput }: BoardInputProps) {
+    const classes = useStyles();
     const [inputs, setValue] = useState({
         title: '',
         content: ''
@@ -30,22 +44,20 @@ function BoardInput({ onInput }: BoardInputProps) {
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <input
-                name="title"
-                placeholder="제목을 입력하세요."
-                value={title}
-                onChange={onChange}
-            />
+        <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmit}>
+            <TextField name="title" value={title} onChange={onChange} id="standard-basic" label="제목" />
             <br />
-            <textarea
+            <TextField
                 name="content"
-                placeholder="내용을 입력하세요."
                 value={content}
                 onChange={onChange}
+                id="standard-multiline-static"
+                label="내용"
+                multiline
+                rows={17}
             />
             <br />
-            <button type="submit">등록</button>
+            <Button type="submit" variant="outlined">등록</Button>
         </form>
     );
 }

@@ -16,19 +16,12 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { TablePagination } from '@material-ui/core';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-import BoardModify from './BoardMofify';
 import Button from '@material-ui/core/Button';
-
-type ModifyProps = {
-  id: number;
-  title: string;
-  content: string;
-}
 
 type BoardListProps = {
     boards: Board[];
     onRemove: (id: number) => void;
-    onModify: ({ id, title, content }: ModifyProps) => void;
+    handleSetModify: (curId: number) => void;
 }
 
 const useStyles = makeStyles({
@@ -119,28 +112,16 @@ function Row(props: {
     );
 }
 
-function BoardList({ boards, onRemove, onModify }: BoardListProps) {
+function BoardList({ boards, onRemove, handleSetModify }: BoardListProps) {
     const classes = useStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
-    const [board, setBoard] = useState<Board>({ id: 0, title: '', content: '', created_at: ''});
-    const [modify, setModify] = useState(false); // 수정페이지인지 아닌지
     const rows: Data[] = [];
 
     const handleSetRows = (boards: BoardsState) => {
         boards.map(board => (
             rows.push(createData(board.id, board.title, board.content, board.created_at, board.id))
         ))
-    }
-
-    const handleSetModify = (curId: number) => {
-      setBoard({
-        id: rows[curId].id,
-        title: rows[curId].title,
-        content: rows[curId].content,
-        created_at: rows[curId].created_at
-      });
-      setModify(true);
     }
 
     const handleChangePage = (event: unknown, newPage: number) => {
@@ -152,8 +133,6 @@ function BoardList({ boards, onRemove, onModify }: BoardListProps) {
         setPage(0);
     };
 
-
-    if (modify) return <BoardModify board={board} onModify={onModify} />;
     return (
         <ThemeProvider theme={unstable_createMuiStrictModeTheme()}>
             { handleSetRows(boards) }

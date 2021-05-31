@@ -85,3 +85,13 @@
 
 ### BoardList
 ![BoardList](https://user-images.githubusercontent.com/20867824/120099185-2faaf700-c175-11eb-975d-63ad80c7ec9b.png)
+
+
+</br>
+
+# &#10004; 0531 (완료)
+* BoardApp - BoardInput, BoardModify 부분 스타일링 적용<br />
+* 기능 구현이랑 스타일링까지 마무리 완료함<br />
+
+### BoardApp (최종)
+![BoardApp](https://user-images.githubusercontent.com/20867824/120218684-125d5200-c275-11eb-9aca-198d9e69d1dc.gif)
